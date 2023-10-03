@@ -499,7 +499,7 @@ MonoBehaviour:
   - {fileID: 8461883410617353645, guid: b87ed4ca731b86444a7dc964d5c5b798, type: 3}
   startDelay: 1
   minRate: 0.5
-  maxRate: 1
+  maxRate: 1.5
 --- !u!1001 &1262541612
 PrefabInstance:
   m_ObjectHideFlags: 0
