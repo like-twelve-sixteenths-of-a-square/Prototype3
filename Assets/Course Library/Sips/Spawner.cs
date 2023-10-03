@@ -9,7 +9,7 @@ public class Spawner : MonoBehaviour
     public float minRate;
     public float maxRate;
 
-    private Vector3 spawnPos = new Vector3(35, 1, 0);
+    private Vector3 spawnPos = new Vector3(35, 5, 0);
     void Start()
     {
         InvokeRepeating("SpawnObstacle", startDelay, Random.Range(minRate, maxRate));
