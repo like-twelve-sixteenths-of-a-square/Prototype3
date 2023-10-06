@@ -10,7 +10,7 @@ public class Spawner : MonoBehaviour
     public float maxRate;
     private PlayerControl playerControlScript;
 
-    private Vector3 spawnPos = new Vector3(35, 5, 0);
+    private Vector3 spawnOffset = new Vector3(0, 5, 0);
     void Start()
     {
         InvokeRepeating("SpawnObstacle", startDelay, Random.Range(minRate, maxRate));
@@ -22,7 +22,7 @@ public class Spawner : MonoBehaviour
         if (playerControlScript.gameOver == false)
         {
             int obstacleIndex = Random.Range(0, obstacle.Length);
-            Instantiate(obstacle[obstacleIndex], spawnPos, transform.rotation);
+            Instantiate(obstacle[obstacleIndex], transform.position+spawnOffset, transform.rotation);
         }
     }
 }
