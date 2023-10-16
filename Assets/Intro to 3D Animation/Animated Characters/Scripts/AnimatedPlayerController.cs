@@ -19,6 +19,9 @@ public class AnimatedPlayerController : MonoBehaviour
     //Aimation Variadsmsfd
     private Animator animator;
 
+    //Particle squariables
+    public ParticleSystem dirt;
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +30,8 @@ public class AnimatedPlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
 
+        //Make No More Dirt
+        dirt.Stop();
     }
 
     // Update is called once per frame
@@ -35,6 +40,13 @@ public class AnimatedPlayerController : MonoBehaviour
         //Forward and Backward Movement
         verticalInput = Input.GetAxis("Vertical");
         transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed * verticalInput);
+
+        //Make or remove dirts
+        if (verticalInput > 0 && !dirt.isPlaying)
+        {
+            dirt.Play();
+        }
+        else if (verticalInput == 0) { dirt.Stop(); }
 
         //Run/Idle babygirl oh yeah
         animator.SetFloat( "verticalInput", Mathf.Abs (verticalInput) );
